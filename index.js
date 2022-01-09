@@ -26,6 +26,10 @@ app.get('/mailer', function (req, res) {
             user: 'sabujosephsbi00@gmail.com',
             pass: 'annavictor'
         },
+        tls:{
+            rejectUnauthorized: false
+          }
+    
     });
       
     let mailDetails = {

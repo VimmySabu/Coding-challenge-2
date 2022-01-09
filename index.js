@@ -2,7 +2,7 @@ const express = require('express');
 const nodemailer=require("nodemailer")
 const app = express();
 
-const port = 3000 ;
+const PORT = process.env.PORT || 3000;
 app.set('views','./views'); 
 app.set('view engine','ejs'); 
 
@@ -45,6 +45,4 @@ app.get('/mailer', function (req, res) {
 })
 
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.listen(PORT, () => console.log('Listening on', PORT));

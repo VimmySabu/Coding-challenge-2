@@ -1,11 +1,13 @@
 const express = require('express');
 const nodemailer=require("nodemailer")
+const bodyParser=require('body-parser');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
 app.set('views','./views'); 
 app.set('view engine','ejs'); 
 
+app.use(bodyParser.urlencoded({extended:false}))
 app.get('/', (req, res) => {
   res.send("Welcome to Coding Competition #2 by Vimmy Sabu, NORKA B3")
 })
@@ -16,18 +18,18 @@ app.get('/home',(req,res)=>{
 app.get('/mailer', function (req, res) {
 
     const email=req.query.email;
-    console.log(email)  ;
+    console.log(email);
 
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {
-            user: 'vimmysabu1998@gmail.com',
-            pass: 'family3.'
+            user: 'sabujosephsbi00@gmail.com',
+            pass: 'annavictor'
         }
     });
       
     let mailDetails = {
-        from: 'vimmysabu1998@gmail.com',
+        from: 'sabujosephsbi00@gmail.com',
         to: email,
         subject: 'Test mail',
         text: 'Hello from Vimmy Sabu ,NORKA B3'
@@ -35,6 +37,7 @@ app.get('/mailer', function (req, res) {
       
     mailTransporter.sendMail(mailDetails, function(err, data) {
         if(err) {
+            console.log(err)
             res.send('Something went wrong');
         } else {
             res.send('Email sent successfully');

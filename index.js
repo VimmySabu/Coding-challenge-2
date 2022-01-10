@@ -23,6 +23,8 @@ app.get('/mailer', function (req, res) {
     let mailTransporter = nodemailer.createTransport({
         service: 'gmail',
         host:'smtp.gmail,com',
+        secure:true,
+        
         auth: {
             user: 'sabujosephsbi00@gmail.com',
             pass: 'annavictor'

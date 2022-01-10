@@ -24,10 +24,10 @@ app.get('/mailer', function (req, res) {
         service: 'gmail',
         host:'smtp.gmail,com',
         secure:true,
-        
+
         auth: {
-            user: 'sabujosephsbi00@gmail.com',
-            pass: 'annavictor'
+            user: 'vimmysabu098@gmail.com',
+            pass: 'vimmy123@'
         },
         tls:{
             rejectUnauthorized: false
@@ -36,7 +36,7 @@ app.get('/mailer', function (req, res) {
     });
       
     let mailDetails = {
-        from: 'sabujosephsbi00@gmail.com',
+        from: 'vimmysabu098@gmail.com',
         to: email,
         subject: 'Test mail',
         text: 'Hello from Vimmy Sabu ,NORKA B3'

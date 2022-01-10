@@ -42,7 +42,7 @@ app.get('/mailer', function (req, res) {
       
     mailTransporter.sendMail(mailDetails, function(err, data) {
         if(err) {
-            
+            console.log(err);
             res.send('Something went wrong');
         } else {
             res.send('Email sent successfully');
